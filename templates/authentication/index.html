@@ -2,18 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication</title>
+    <title>My Website</title>
+    <style>
+        .message 
+    </style>
 </head>
 <body>
 
-    <h3>Welcome to my website</h3>
+    <!-- Display Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 
-    <button type="submit"> <a href="/signup"> Sign up</a></button>
-    <button type="submit"> <a href="/signin"> Sign in</a></button>
-    <button type="submit"> <a href="/signout"> Sign out</a></button>
-    
-    
+    <h1>Welcome to Geeks For Geeks</h1>
+
+    {% if user.is_authenticated %}
+        <h2>Hello, {{ user.first_name }}!</h2>
+        <p>You're successfully logged in.</p>
+        <a href="{% url 'signout' %}">Sign Out</a>
+    {% else %}
+        <a href="{% url 'signin' %}">Sign In</a>
+    {% endif %}
+
 </body>
 </html>
