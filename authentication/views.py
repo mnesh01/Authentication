@@ -53,5 +53,5 @@ def signin(request):
 
 def signout(request):
     logout(request)
-    messages.success(request, "You have successfully logged out.")
+    messages.success(request, "Successfully logged out.")
     return redirect('home')
