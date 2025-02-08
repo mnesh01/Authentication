@@ -26,6 +26,11 @@ def signup(request):
         if User.objects.filter(email=email).exists():
             messages.error(request, "Email already exists!")
             return redirect('home')
+        
+        if not username.isalnum():
+            messages.error(request, "Username must be alphanumeric!")
+            return redirect('home')
+            
             
 
         myuser = User.objects.create_user(username=username, email=email, password=pass1)
