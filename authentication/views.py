@@ -17,7 +17,7 @@ def signup(request):
 
         if pass1 != pass2:
             messages.error(request, "Passwords do not match!")
-            return redirect('signup')
+            return redirect('home')
         
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already taken!")
