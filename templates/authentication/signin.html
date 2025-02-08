@@ -5,8 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signin</title>
+    <style>
+        .message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: block;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .close {
+            float: right;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+    </style>
 </head>
 <body>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 
     <h3>Sign in</h3>
 
