@@ -71,7 +71,7 @@ def signin(request):
             messages.error(request, "× Bad Credentials")
             return redirect('signin')
 
-    return render(request, "authentication/signup.html")
+    return render(request, "authentication/signin.html")
 
 def signout(request):
     logout(request)
