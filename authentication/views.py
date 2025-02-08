@@ -22,6 +22,11 @@ def signup(request):
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already taken!")
             return redirect('home')
+        
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Email already exists!")
+            return redirect('home')
+            
 
         myuser = User.objects.create_user(username=username, email=email, password=pass1)
         myuser.first_name = fname
