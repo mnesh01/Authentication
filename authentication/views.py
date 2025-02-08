@@ -1,7 +1,9 @@
+from login import settings
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.core.mail import send_mail
 
 def home(request):
     return render(request, "authentication/index.html")
@@ -41,6 +43,14 @@ def signup(request):
         myuser.save()
 
         messages.success(request, "Your account has been successfully created.")
+        
+        #Welcome email
+        subject = "Welcome to Django login system"
+        message = "Hello " + myuser.first_name +"!! \n Thank you for visiting our site \n A confirmation email has also been sent to you. \n Kindly confirm your email address \n\n Thank you" 
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [myuser.email]
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
+   
         return redirect('signin')
 
     return render(request, "authentication/signup.html")
@@ -61,7 +71,7 @@ def signin(request):
             messages.error(request, "× Bad Credentials")
             return redirect('signin')
 
-    return render(request, "authentication/signin.html")
+    return render(request, "authentication/signup.html")
 
 def signout(request):
     logout(request)
