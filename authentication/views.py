@@ -52,8 +52,8 @@ def signup(request):
         messages.success(request, "Your account has been successfully created.Please confirm your email to activate your account")
         
         #Welcome email
-        subject = "Welcome to Django login system"
-        message = "Hello " + myuser.first_name +"!! \n Thank you for visiting our site \n A confirmation email has also been sent to you. \n Kindly confirm your email address \n\n Thank you" 
+        subject = "Welcome to AUTH"
+        message = " Hello " + myuser.first_name +"!! \n Thank you for visiting our site,a confirmation email has also been sent to you. \n Kindly confirm your email address. \n\n Thank you!" 
         from_email = settings.EMAIL_HOST_USER
         to_list = [myuser.email]
         send_mail(subject, message, from_email, to_list, fail_silently=True)
