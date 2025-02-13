@@ -35,9 +35,8 @@
         {% endfor %}
     {% endif %}
 
-    <h3>Sign up</h3>
-
     <form action="/signup" method="post">
+        <h3>Sign up</h3>
         {% csrf_token %}
         <label for="">Username</label>
         <input type="text" id="username" name="username" placeholder="Create a username(only letters and numbers)" Required>
