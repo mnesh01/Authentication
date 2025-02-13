@@ -13,22 +13,22 @@ It includes token-based email verification and user session handling.
 - Django Messages Framework Integration
 
 ## Installation
-### 1. Clone the Repository
-```bash
+## 1. Clone the Repository
 git clone https://github.com/mnesh01/Auth.git
 cd Auth
 
-### 2. Create a Virtual Environment 
+## 2. Create a Virtual Environment 
 python -m venv env
 source env/bin/activate  # On Mac/Linux
 env\Scripts\activate  # On Windows
 
-### 3. Install Dependencies
+## 3. Install Dependencies
 pip install -r requirements.txt
-### 4. Configure Environment Variables
+
+## 4. Configure Environment Variables
 Create a .env file in the root directory and add:
 
-### 5. Apply Migrations
+## 5. Apply Migrations
 python manage.py migrate
-### 6. Run the Server
+## 6. Run the Server
 python manage.py runserver
