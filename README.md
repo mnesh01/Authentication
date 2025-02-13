@@ -1,7 +1,8 @@
-# Auth - Django Authentication System
+# A Django Authentication System
 
 ## Overview
-Auth is a Django-based user authentication system that provides user registration, email verification, login, and logout functionalities. It includes token-based email verification and user session handling.
+Auth is a Django-based user authentication system that provides user registration, email verification, login, and logout functionalities. 
+It includes token-based email verification and user session handling.
 
 ## Features
 - User Registration
