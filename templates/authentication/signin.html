@@ -26,17 +26,19 @@
 </head>
 <body>
 
-    {% if messages %}
+
+
+    <form action="/signin" method="post">
+
+        {% if messages %}
         {% for message in messages %}
             <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
                 <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
                 {{ message }}
             </div>
         {% endfor %}
-    {% endif %}
+        {% endif %}
 
-
-    <form action="/signin" method="post">
         <h3>Sign in</h3>
         {% csrf_token %}
         <label for="">Username</label>
