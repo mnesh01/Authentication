@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo "Installing dependencies..."
+      - pip install -r requirements.txt
+  pre_build:
+    commands:
+      - echo "Pre-build stage..."
+  build:
+    commands:
+      - echo "Building Docker image..."
+      - docker build login_system .
+  post_build:
+    commands:
+      - echo "Build complete!"
