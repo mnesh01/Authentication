@@ -30,5 +30,6 @@ Create a .env file in the root directory and add:
 
 ## 5. Apply Migrations
 python manage.py migrate
-## 6. Run the Server
+
+## 5. Run the server
 python manage.py runserver
